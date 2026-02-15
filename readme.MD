@@ -58,6 +58,21 @@ go test ./providers -cover
 go test ./aggregator -cover
 ```
 
+## Approach
+
+This project implements a robust flight search aggregator in Go, designed for extensibility and reliability:
+
+- **Provider Abstraction:** Each airline provider is implemented as a Go interface, allowing easy addition of new providers and uniform querying.
+- **Concurrent Calls:** Provider queries are executed concurrently, improving performance and reducing latency.
+- **Advanced Filtering:** The aggregator supports filtering by price, stops, airlines, departure/arrival time, and duration, giving users granular control over search results.
+- **Deduplication & Price Comparison:** Flights from different providers are deduplicated and the best price is selected for each unique flight.
+- **Ranking & Sorting:** Results are ranked by a "best value" score (combining price and convenience) and can be sorted by price, duration, or time.
+- **In-Memory Caching:** Search results are cached in-memory with TTL and size limits, reducing repeated provider calls and improving response time.
+- **Graceful Error Handling:** If a provider fails, results from other providers are still returned. Timeout and context cancellation are handled cleanly.
+- **Test Coverage:** The codebase is covered by unit tests for both providers and aggregator logic, ensuring reliability and maintainability.
+
+This approach balances performance, flexibility, and reliability, making it suitable for both demonstration and production use cases.
+
 ## Assumptions & Notes
 
 - **Providers use mock data** from the `mock_data/` directory. No real API calls are made.
