@@ -30,7 +30,11 @@ flight-aggregator/
 
 1. **Install Go (>= 1.18)**
 2. Clone the repository and navigate to the project root.
-3. Run the aggregator:
+3. Update the Go package
+```sh
+go mod tidy
+```
+4. Run the aggregator:
 
 ```sh
 # From project root
@@ -61,7 +65,7 @@ go test ./aggregator -cover
 - **Filtering** supports price, stops, airlines, departure/arrival time, and duration.
 - **Ranking** is based on a combination of price, stops, duration, and convenience.
 - **Error handling**: If a provider fails, results from other providers are still returned. Timeout and context cancellation are handled gracefully.
-- **Tests**: Achieve >80% coverage for both providers and aggregator logic.
+- **Tests**: >65% coverage for both providers and aggregator logic.
 - **Run from project root** to ensure mock data is found by tests and providers.
 
 ---
