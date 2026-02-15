@@ -1,0 +1,32 @@
+# VSCode
+.vscode
+
+# Go build
+bin/
+*.exe
+*.test
+*.out
+
+# Dependency directories
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test cache
+*.coverprofile
+*.cov
+
+# IDE
+.idea/
+
+# Misc
+*.swp
+*.swo
+
+# Ignore mock data output (if generated)
+mock_data/*.tmp
